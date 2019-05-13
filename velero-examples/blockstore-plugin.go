@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"strconv"
 
-	"github.com/heptio/velero/pkg/util/collections"
 	"github.com/heptio/velero/pkg/cloudprovider"
+	"github.com/heptio/velero/pkg/util/collections"
 	"github.com/sirupsen/logrus"
 	"k8s.io/apimachinery/pkg/runtime"
 )
@@ -156,4 +156,10 @@ func (p *NoOpBlockStore) SetVolumeID(pv runtime.Unstructured, volumeID string) (
 
 	metadataMap["volumeID"] = volumeID
 	return pv, nil
+}
+
+func (p *NoOpBlockStore) UploadSnapshot(volumeID string) error {
+	p.Infof("***********************Inside UploadSnapshot method**************************")
+	p.Infof("VolumeID %s", volumeID)
+	return nil
 }

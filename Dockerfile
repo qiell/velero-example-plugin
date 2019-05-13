@@ -14,6 +14,6 @@
 
 FROM alpine:3.6
 RUN mkdir /plugins
-ADD velero-* /plugins/
+ADD /_output/velero-* /plugins/
 USER nobody:nobody
 ENTRYPOINT ["/bin/ash", "-c", "cp /plugins/* /target/."]
